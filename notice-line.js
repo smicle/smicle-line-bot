@@ -34,7 +34,7 @@ function getSheet() {
 }
 
 /**
- * バイトの開始終了を通知する機能
+ * バイトの開始・終了を通知する機能
  */
 function notice() {
   var date = new Date()
@@ -50,7 +50,7 @@ function notice() {
 }
 
 /**
- * 今日バイトがあるかないかを通知する機能
+ * バイトがある日の朝に通知する機能
  */
 function today() {
   var date = new Date()
