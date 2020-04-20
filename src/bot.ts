@@ -68,8 +68,11 @@ const replyImage = (text: string, replyToken: string): boolean => {
   const url: Option<string> = (() => {
     switch (text.replace('！', '!')) {
       case 'ヤバイわよ':
+      case 'ヤバいわよ':
       case 'ヤバイわよ!':
+      case 'ヤバいわよ!':
       case 'ヤバイわよ!!':
+      case 'ヤバいわよ!!':
         return env.GetVal('YABAIWAYO')
       case 'やばいですね':
       case 'やばいですね☆':
