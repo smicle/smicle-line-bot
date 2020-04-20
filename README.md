@@ -5,7 +5,7 @@ smicle-botというLineのbotを作成した。
 
 ### Link
 [LINE Developers](https://developers.line.biz/console/channel/1654037421?status=success)  
-[smicle-line-bot · GitHub | Heroku](https://dashboard.heroku.com/apps/smicle-line-bot/deploy/github)  
+[smicle-line-bot | Heroku](https://dashboard.heroku.com/apps/smicle-line-bot)
 
 ### バイトの通知をする機能
 [notice-line](https://github.com/smicle/smicle-line-bot/tree/master/notice-line)  
