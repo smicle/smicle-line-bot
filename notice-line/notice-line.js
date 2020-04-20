@@ -15,7 +15,7 @@ function getSheet() {
     var day = sheet
       .getRange(1, i, 3, 1)
       .getValues()
-      .map(function(n) {
+      .map(function (n) {
         return ('0' + n[0]).slice(-2)
       })
 
@@ -34,36 +34,36 @@ function getSheet() {
 }
 
 /**
- * バイトの開始・終了を通知する機能
+ * バイトの開始終了を通知する機能
  */
 function notice() {
   var date = new Date()
   var time = Utilities.formatDate(date, 'Asia/Tokyo', 'yyyy-MM-dd HH')
 
   getSheet()
-    .filter(function(l) {
+    .filter(function (l) {
       return l.time == time
     })
-    .forEach(function(l) {
+    .forEach(function (l) {
       lineJob(l.job == 'start' ? '横田社畜モード' : 'バイト終了')
     })
 }
 
 /**
- * バイトがある日の朝に通知する機能
+ * 今日バイトがあるかないかを通知する機能
  */
 function today() {
   var date = new Date()
   var time = Utilities.formatDate(date, 'Asia/Tokyo', 'yyyy-MM-dd HH')
 
   getSheet()
-    .filter(function(l) {
+    .filter(function (l) {
       return l.time.split(' ')[0] == time.split(' ')[0]
     })
-    .filter(function(l) {
+    .filter(function (l) {
       return l.job == 'start'
     })
-    .forEach(function() {
+    .forEach(function () {
       lineJob('今日はバイトがあります！！')
     })
 }
@@ -73,7 +73,13 @@ function today() {
  * @param {mes: string} 通知内容
  */
 function lineJob(mes) {
-  UrlFetchApp.fetch(
-    'https://maker.ifttt.com/trigger/notice-line/with/key/cWl5ommh4auDYC3Cl8rjf1?value1=' + mes
-  )
+  UrlFetchApp.fetch('https://smicle-line-bot.herokuapp.com/post?mes=' + mes, {method: 'post'})
+}
+
+/**
+ * テスト用にメッセージを送信する
+ */
+function test() {
+  var mes = 'テスト中'
+  lineJob(mes)
 }
