@@ -15,7 +15,7 @@ var line = __importStar(require("@line/bot-sdk"));
 var bot = __importStar(require("./bot"));
 var PORT = process.env.PORT || 5000;
 express_1["default"]()
-    .post('/post/', function (req, res) { return bot.PostMessage(req, res); })
+    .post('/post/', function (req, res) { return bot.NoticeLine(req, res); })
     .post('/hook/', line.middleware(bot.Config), function (req, res) {
     res.status(200).end();
     req.body.events.forEach(function (e) { return bot.EchoMessage(e); });

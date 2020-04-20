@@ -50,7 +50,7 @@ exports.Config = {
     channelSecret: env.GetVal('SECRET_KEY')
 };
 var client = new line.Client(exports.Config);
-exports.PostMessage = function (req, res) {
+exports.NoticeLine = function (req, res) {
     client.pushMessage(env.GetVal('MESSAGE_CHANNEL'), {
         type: 'text',
         text: "[bot]\n" + req.query.mes
@@ -83,19 +83,19 @@ var replyText = function (text, replyToken) {
 };
 var replyImage = function (text, replyToken) {
     var url = (function () {
-        switch (text) {
+        switch (text.replace('！', '!')) {
             case 'ヤバイわよ':
-            case 'ヤバイわよ！':
-            case 'ヤバイわよ！！':
+            case 'ヤバいわよ':
             case 'ヤバイわよ!':
+            case 'ヤバいわよ!':
             case 'ヤバイわよ!!':
+            case 'ヤバいわよ!!':
                 return env.GetVal('YABAIWAYO');
             case 'やばいですね':
             case 'やばいですね☆':
                 return env.GetVal('YABAIDESUNE');
             case 'めっちゃやむ':
             case 'めっちゃやむ!':
-            case 'めっちゃやむ！':
                 return env.GetVal('METTYAYAMU');
         }
     })();
