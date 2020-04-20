@@ -66,19 +66,13 @@ const replyText = (text: string, replyToken: string): boolean => {
  */
 const replyImage = (text: string, replyToken: string): boolean => {
   const url: Option<string> = (() => {
-    switch (text.replace('！', '!')) {
+    const t = text.replace(/!|！|☆/g, '').replace('ヤバい', 'ヤバイ')
+    switch (t) {
       case 'ヤバイわよ':
-      case 'ヤバいわよ':
-      case 'ヤバイわよ!':
-      case 'ヤバいわよ!':
-      case 'ヤバイわよ!!':
-      case 'ヤバいわよ!!':
         return env.GetVal('YABAIWAYO')
       case 'やばいですね':
-      case 'やばいですね☆':
         return env.GetVal('YABAIDESUNE')
       case 'めっちゃやむ':
-      case 'めっちゃやむ!':
         return env.GetVal('METTYAYAMU')
     }
   })()
