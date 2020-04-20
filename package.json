@@ -1,0 +1,25 @@
+{
+  "name": "smicle-line-bot",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": "12.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@line/bot-sdk": "^6.8.4",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.6",
+    "@types/node": "^13.11.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.15.2",
+    "typescript": "^3.8.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
