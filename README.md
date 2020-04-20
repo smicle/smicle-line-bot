@@ -10,7 +10,13 @@ smicle-botというLineのbotを作成した。
 ### バイトの通知をする機能
 [notice-line](https://github.com/smicle/smicle-line-bot/tree/master/notice-line)  
 
-### 画像を返す機能
+### メッセージを返信する機能
+以下のメッセージを送信した場合にメッセージを返す。  
+- スプレッドシート  
+  [notice-line - Google スプレッドシート](https://docs.google.com/spreadsheets/d/1ACRIqT95fIjMhyzibSxO6MXCGZYQIcDzvnMsn7_t94k/edit#gid=0)
+
+### 画像を返信する機能
+以下のメッセージを送信した場合に画像を返す。  
 - ヤバイわよ！  
   ![ヤバイわよ！](https://github.com/smicle/smicle-line-bot/blob/assets/assets/%E3%83%A4%E3%83%90%E3%82%A4%E3%82%8F%E3%82%88%EF%BC%81.png "ヤバイわよ！.png")  
 - やばいですね☆  
