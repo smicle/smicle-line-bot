@@ -42,16 +42,19 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 exports.__esModule = true;
 var line = __importStar(require("@line/bot-sdk"));
-var env = __importStar(require("./env"));
+var throw_env_1 = __importDefault(require("throw-env"));
 exports.Config = {
-    channelAccessToken: env.GetVal('ACCESS_TOKEN'),
-    channelSecret: env.GetVal('SECRET_KEY')
+    channelAccessToken: throw_env_1["default"]('ACCESS_TOKEN'),
+    channelSecret: throw_env_1["default"]('SECRET_KEY')
 };
 var client = new line.Client(exports.Config);
 exports.NoticeLine = function (req, res) {
-    client.pushMessage(env.GetVal('MESSAGE_CHANNEL'), {
+    client.pushMessage(throw_env_1["default"]('MESSAGE_CHANNEL'), {
         type: 'text',
         text: "[bot]\n" + req.query.mes
     });
@@ -75,7 +78,7 @@ var replyText = function (text, replyToken) {
     if (text === 'スプレッドシート') {
         client.replyMessage(replyToken, {
             type: 'text',
-            text: env.GetVal('SPREAD_SHEETS')
+            text: throw_env_1["default"]('SPREAD_SHEETS')
         });
         return true;
     }
@@ -83,20 +86,14 @@ var replyText = function (text, replyToken) {
 };
 var replyImage = function (text, replyToken) {
     var url = (function () {
-        switch (text.replace('！', '!')) {
+        var t = text.replace(/!|！|☆/g, '').replace('ヤバい', 'ヤバイ');
+        switch (t) {
             case 'ヤバイわよ':
-            case 'ヤバいわよ':
-            case 'ヤバイわよ!':
-            case 'ヤバいわよ!':
-            case 'ヤバイわよ!!':
-            case 'ヤバいわよ!!':
-                return env.GetVal('YABAIWAYO');
+                return throw_env_1["default"]('YABAIWAYO');
             case 'やばいですね':
-            case 'やばいですね☆':
-                return env.GetVal('YABAIDESUNE');
+                return throw_env_1["default"]('YABAIDESUNE');
             case 'めっちゃやむ':
-            case 'めっちゃやむ!':
-                return env.GetVal('METTYAYAMU');
+                return throw_env_1["default"]('METTYAYAMU');
         }
     })();
     if (!url)

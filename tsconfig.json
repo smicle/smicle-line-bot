@@ -14,5 +14,5 @@
     "allowJs": true,
     "outDir": "./dist/"
   },
-  "files": ["src/index.ts", "src/type.ts", "src/env.ts", "src/bot.ts"]
+  "files": ["src/index.ts", "src/bot.ts"]
 }
