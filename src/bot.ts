@@ -1,7 +1,7 @@
-import express from 'express'
 import * as line from '@line/bot-sdk'
-import * as env from './env'
-import {Option} from './type'
+import express from 'express'
+import throwEnv from 'throw-env'
+import Option from 'type-of-option'
 
 /**
  * Lineのconfig
@@ -9,8 +9,8 @@ import {Option} from './type'
  * @property channelSecret: string - シークレットキー
  */
 export const Config = {
-  channelAccessToken: env.GetVal('ACCESS_TOKEN'),
-  channelSecret: env.GetVal('SECRET_KEY'),
+  channelAccessToken: throwEnv('ACCESS_TOKEN'),
+  channelSecret: throwEnv('SECRET_KEY'),
 }
 
 const client = new line.Client(Config)
@@ -22,7 +22,7 @@ const client = new line.Client(Config)
  * @param res GoogleAppsScriptからのレスポンス
  */
 export const NoticeLine = (req: express.Request, res: express.Response) => {
-  client.pushMessage(env.GetVal('MESSAGE_CHANNEL'), {
+  client.pushMessage(throwEnv('MESSAGE_CHANNEL'), {
     type: 'text',
     text: `[bot]\n${req.query.mes}`,
   })
@@ -51,7 +51,7 @@ const replyText = (text: string, replyToken: string): boolean => {
   if (text === 'スプレッドシート') {
     client.replyMessage(replyToken, {
       type: 'text',
-      text: env.GetVal('SPREAD_SHEETS'),
+      text: throwEnv('SPREAD_SHEETS'),
     })
     return true
   }
@@ -69,11 +69,11 @@ const replyImage = (text: string, replyToken: string): boolean => {
     const t = text.replace(/!|！|☆/g, '').replace('ヤバい', 'ヤバイ')
     switch (t) {
       case 'ヤバイわよ':
-        return env.GetVal('YABAIWAYO')
+        return throwEnv('YABAIWAYO')
       case 'やばいですね':
-        return env.GetVal('YABAIDESUNE')
+        return throwEnv('YABAIDESUNE')
       case 'めっちゃやむ':
-        return env.GetVal('METTYAYAMU')
+        return throwEnv('METTYAYAMU')
     }
   })()
 
