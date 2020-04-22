@@ -4,7 +4,7 @@ import throwEnv from 'throw-env'
 import Option from 'type-of-option'
 
 /**
- * Lineのconfig
+ * LINEのconfig
  * @property channelAccessToken: string - アクセストークン
  * @property channelSecret: string - シークレットキー
  */
@@ -31,7 +31,7 @@ export const NoticeLine = (req: express.Request, res: express.Response) => {
 
 /**
  * 入力されたメッセージに応じて返信する
- * @param e Lineのメッセージイベント
+ * @param e LINEのメッセージイベント
  */
 export const EchoMessage = async (e: line.WebhookEvent) => {
   if (e.type !== 'message' || e.message.type !== 'text') return
