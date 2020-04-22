@@ -43,11 +43,16 @@ export const EchoMessage = async (e: line.WebhookEvent) => {
 }
 
 /**
+ * 処理が成功したか失敗したかの結果を返す
+ */
+type Result = boolean
+
+/**
  * 特定のメッセージの場合、返信をする
  * @param text メッセージの内容
  * @param replyToken メッセージがきたチャンネルのToken
  */
-const replyText = (text: string, replyToken: string): boolean => {
+const replyText = (text: string, replyToken: string): Result => {
   if (text === 'スプレッドシート') {
     client.replyMessage(replyToken, {
       type: 'text',
@@ -64,7 +69,7 @@ const replyText = (text: string, replyToken: string): boolean => {
  * @param text メッセージの内容
  * @param replyToken メッセージがきたチャンネルのToken
  */
-const replyImage = (text: string, replyToken: string): boolean => {
+const replyImage = (text: string, replyToken: string): Result => {
   const url: Option<string> = (() => {
     const t = text.replace(/!|！|☆/g, '').replace('ヤバい', 'ヤバイ')
     switch (t) {
