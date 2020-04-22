@@ -1,5 +1,6 @@
 ## smicle-line-bot
 
+### Intro
 smicle-botというLINEのbotを作成した。  
 友人のバイト通知等の機能が実装されている。  
 
