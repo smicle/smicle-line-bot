@@ -1,4 +1,6 @@
 ## smicle-line-bot
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ddbc31c0f11143b2bc90ad5da9e44fc4)](https://www.codacy.com/manual/smicle/smicle-line-bot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=smicle/smicle-line-bot&amp;utm_campaign=Badge_Grade)
+[![codebeat badge](https://codebeat.co/badges/80586104-7402-4c0b-834f-dd7adecb7151)](https://codebeat.co/projects/github-com-smicle-smicle-line-bot-master)
 
 ### Intro
 smicle-botというLINEのbotを作成した。  
