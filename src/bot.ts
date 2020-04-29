@@ -77,7 +77,7 @@ const replyImage = (text: string, replyToken: string): Result => {
         return throwEnv('YABAIWAYO')
       case 'やばいですね':
         return throwEnv('YABAIDESUNE')
-      case 'めっちゃやむ':
+      case 'やむ':
         return throwEnv('METTYAYAMU')
     }
   })()
