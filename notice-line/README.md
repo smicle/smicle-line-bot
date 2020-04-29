@@ -1,5 +1,6 @@
 ## notice-line
 バイトの時間とバイトがあるかをグループに送信する。  
+プリコネのアニメを通知する。  
 
 ### Link
 - [rest api - Google Drive](https://drive.google.com/drive/u/0/folders/16ZHOCmkYvvOrU_Jh7_uh2luq_0sdYa9o)
