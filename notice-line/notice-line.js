@@ -77,6 +77,16 @@ function lineJob(mes) {
 }
 
 /**
+ * プリコネのアニメを通知する
+ */
+function priconne() {
+  ['プリコネのアニメを見よう！', 'https://abema.tv/now-on-air/abema-anime'].forEach(function (mes) {
+    UrlFetchApp.fetch('https://smicle-line-bot.herokuapp.com/post?mes=' + mes, {method: 'post'})
+    Utilities.sleep(1000)
+  })
+}
+
+/**
  * テスト用にメッセージを送信する
  */
 function test() {
