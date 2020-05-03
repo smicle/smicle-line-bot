@@ -70,17 +70,12 @@ const replyText = (text: string, replyToken: string): Result => {
  * @param replyToken メッセージがきたチャンネルのToken
  */
 const replyImage = (text: string, replyToken: string): Result => {
-  const url: Option<string> = (() => {
-    const t = text.replace(/!|！|☆/g, '').replace('ヤバい', 'ヤバイ')
-    switch (t) {
-      case 'ヤバイわよ':
-        return throwEnv('YABAIWAYO')
-      case 'やばいですね':
-        return throwEnv('YABAIDESUNE')
-      case 'やむ':
-        return throwEnv('METTYAYAMU')
-    }
-  })()
+  // prettier-ignore
+  const url: Option<string> =
+    text.match(/やばいですね/) ? throwEnv('YABAIDESUNE') :
+    text.replace(/やばい|ヤバい/g, 'ヤバイ').match(/ヤバイ/) ? throwEnv('YABAIWAYO') :
+    text.match(/やむ/) ? throwEnv('METTYAYAMU') :
+    null
 
   if (!url) return false
 
