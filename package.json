@@ -14,6 +14,7 @@
     "@line/bot-sdk": "^6.8.4",
     "@types/express": "^4.17.6",
     "@types/node": "^13.11.0",
+    "const-settings": "^1.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.15.2",
     "throw-env": "^1.0.0",
