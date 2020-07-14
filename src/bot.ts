@@ -1,6 +1,7 @@
 import * as line from '@line/bot-sdk'
 import express from 'express'
 import throwEnv from 'throw-env'
+import Settings from 'const-settings'
 import Option from 'type-of-option'
 
 /**
@@ -56,7 +57,7 @@ const replyText = (text: string, replyToken: string): Result => {
   if (text === 'スプレッドシート') {
     client.replyMessage(replyToken, {
       type: 'text',
-      text: throwEnv('SPREAD_SHEETS'),
+      text: Settings.SPREAD_SHEETS,
     })
     return true
   }
@@ -72,9 +73,9 @@ const replyText = (text: string, replyToken: string): Result => {
 const replyImage = (text: string, replyToken: string): Result => {
   // prettier-ignore
   const url: Option<string> =
-    text.match(/やばいですね/) ? throwEnv('YABAIDESUNE') :
-    text.replace(/やばい|ヤバい/g, 'ヤバイ').match(/ヤバイ/) ? throwEnv('YABAIWAYO') :
-    text.match(/やむ/) ? throwEnv('METTYAYAMU') :
+    text.match(/やばいですね/) ? Settings.URL.YABAIDESUNE :
+    text.replace(/やばい|ヤバい/g, 'ヤバイ').match(/ヤバイ/) ? Settings.URL.YABAIWAYO :
+    text.match(/やむ/) ? Settings.URL.METTYAYAMU :
     null
 
   if (!url) return false
