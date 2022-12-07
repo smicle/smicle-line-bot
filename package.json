@@ -16,7 +16,7 @@
     "@types/node": "^13.11.0",
     "const-settings": "^1.0.0",
     "dotenv": "^8.2.0",
-    "express": "^4.15.2",
+    "express": "^4.18.2",
     "throw-env": "^1.0.0",
     "type-of-option": "^1.0.1",
     "typescript": "^3.8.3"
